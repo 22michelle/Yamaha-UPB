@@ -9,6 +9,7 @@ export const Navbar = () => {
         <div className="container">
           <NavLink to="/">
             <img
+              className="logo"
               src="/src/assets/yamaha-12.svg"
               alt="Yamaha"
               width={150}
@@ -17,13 +18,15 @@ export const Navbar = () => {
           </NavLink>{" "}
           <div className="row flex-end text-wrap">
             <div className="col m-3">
-              <NavLink to="/login">
-                <button className="btn text-u">Login</button>
+              <NavLink to="/register">
+                <button className="btn text-u">Registro</button>
               </NavLink>
             </div>
             <div className="col m-3">
-              <NavLink to="/register">
-                <button className="btn text-u">Registro</button>
+              <NavLink to="/login">
+                <button className="btn">
+                  Login <i class="fa-solid fa-right-to-bracket me-2" />
+                </button>
               </NavLink>
             </div>
           </div>

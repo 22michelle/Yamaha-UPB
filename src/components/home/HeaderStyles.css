@@ -3,11 +3,22 @@
   display: inline-block;
 }
 
-.banner-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.Title {
+  margin-top: 400px;
   text-align: center;
-  color: #fff;
+  font-size: 48px;
+  color: #000000;
+  background-color: rgb(255, 255, 255);
+  padding: 30px;
+  border-radius: 5px;
+  background-attachment: fixed;
+}
+
+.body {
+  background-image: url("/src/assets/fondo.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding: 10px;
 }
