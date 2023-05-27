@@ -1,0 +1,28 @@
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+  box-shadow: 0px 4px 10px rgba(31, 1, 252, 0.692);
+}
+
+.top-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.btn {
+  background-color: #283494;
+  color: #ffff;
+  font-size: 16px;
+  width: 150px;
+  text-align: center;
+  font-weight: 500;
+  position: relative;
+}
+
+.btn:hover {
+  background-color: #283594c0;
+  color: #ffff;
+}
