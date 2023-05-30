@@ -1,12 +1,12 @@
-import React from 'react'
-import {Navbar} from '../components/common/Navbar'
-import {Header} from '../components/home/Header'
+import React from "react";
+import { Header } from "../components/home/Header";
+import Footer from "../components/home/Footer";
 
 export const Home = () => {
   return (
     <div>
-        <Navbar/>
-        <Header/>
+      <Header />
+      <Footer/>
     </div>
-  )
-}
+  );
+};
