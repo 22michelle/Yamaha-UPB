@@ -1,50 +1,46 @@
 .navbar {
-  display: flex;
-  justify-content: flex-start;
-  box-shadow: 0px 4px 10px rgba(31, 1, 252, 0.692);
+    display: flex;
+    justify-content: flex-start;
 }
 
 .navbar .logo {
-  color: #fff;
-  height: 50px;
-  max-width: 180px;
+    color: #fff;
+    height: 50px;
+    max-width: 180px;
 }
 
 .navbar .logo:hover {
-  color: #fff;
-  height: 50px;
-  width: 180px;
-  box-shadow: 0px 4px 1px rgba(31, 1, 252, 0.692);
+    color: #fff;
+    height: 50px;
+    width: 180px;
+    box-shadow: 0px 4px 1px rgba(31, 1, 252, 0.692);
 }
 
 .top-fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
 }
 
 .btn {
-  /* background-color: #283494; */
-  color: #ffffff;
-  background-color: #28247a;
-  font-size: 16px;
-  font-family: "Times New Roman", Times, serif;
-  font-weight: bold;
-  width: 150px;
-  text-align: center;
-  border-color: rgba(0, 0, 2, 0.318);
-  font-weight: 500;
-  position: relative;
-
-  box-shadow: 0px 4px 1px rgba(48, 47, 53, 0.579);
-  transition: background-color 0.3s, transform 0.6s, box-shadow 0.3s;
+    /* background-color: #283494; */
+    color: #ffffff;
+    background-color: #28247a;
+    font-size: 16px;
+    font-weight: bold;
+    width: 150px;
+    text-align: center;
+    border-color: rgba(0, 0, 2, 0.318);
+    font-weight: 500;
+    position: relative;
+    transition: background-color 0.3s, transform 0.6s, box-shadow 0.3s;
 }
 
 .btn:hover {
-  background-color: #ffffffe3;
-  color: #000000;
-  border-color: rgba(3, 3, 3, 0.516);
-  box-shadow: 0px 4px 1px rgba(37, 37, 37, 0.397);
+    background-color: #ffffffe3;
+    color: #000000;
+    border-color: rgba(3, 3, 3, 0.516);
+    box-shadow: 0px 4px 1px rgba(37, 37, 37, 0.397);
 }
