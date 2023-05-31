@@ -3,13 +3,28 @@
 .login-form-container {
     max-width: 700px;
     margin: 0 auto;
-    margin-top: 150px;
-    padding: 60px;
+    margin-top: 250px;
+    padding: 50px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f7f7f7;
-    height: 500px;
-    width: 800px;
+    height: 430px;
+    width: 600px;
+}
+
+.btn-return-login {
+    padding: 10px;
+    font-size: 14px;
+    margin-top: -40px;
+    display: block;
+    margin-right: -40px;
+    float: right;
+    border-radius: 5px;
+    background-color: #283494;
+    color: #fff;
+    border: 1px solid #283494;
+    height: 40px;
+    width: 40px;
 }
 
 .login-form-container h2 {
@@ -21,7 +36,7 @@
     color: #283494;
 }
 
-.body {
+.body1 {
     background-image: url("/src/assets/fondo2.jpg");
     background-size: cover;
     background-position: center;
@@ -100,11 +115,26 @@ label {
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f7f7f7;
-    height: 80%;
+    height: 79%;
     width: 800%;
     padding: 50px;
     padding-left: 30px;
     padding-right: 30px;
+}
+
+.btn-return-register {
+    padding: 10px;
+    font-size: 14px;
+    margin-top: -60px;
+    display: block;
+    margin-right: -10px;
+    float: right;
+    border-radius: 5px;
+    background-color: #283494;
+    color: #fff;
+    border: 1px solid #283494;
+    height: 40px;
+    width: 40px;
 }
 
 .registro-form-container h2 {
@@ -156,6 +186,7 @@ label {
 .btn-registro {
     display: block;
     width: 100%;
+    margin-top: 50px;
     padding: 10px;
     background-color: #283494;
     color: #fff;
@@ -169,6 +200,7 @@ label {
     color: #ffff;
     font-size: 16px;
     width: 150px;
+    margin-top: 50px;
     text-align: center;
     font-weight: 500;
     margin: 0 auto;
