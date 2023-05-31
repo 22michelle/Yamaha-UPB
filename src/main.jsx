@@ -7,6 +7,7 @@ import { Home } from "./pages/Home.jsx";
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
 import Status from "./pages/Status.jsx";
+import Detailsstatus from "./pages/Detailsstatus.jsx";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "status",
         element: <Status />,
+      },
+      {
+        path: "detail",
+        element: <Detailsstatus />,
       },
     ],
   },
