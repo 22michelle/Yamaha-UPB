@@ -25,7 +25,7 @@ const Login = () => {
         {/* button return */}
         <Link to="/">
           <button className="btn-return-login">
-          <i class="fa-solid fa-x"></i>
+          <i class="fa-solid fa-x mt-1"></i>
           </button>
         </Link>
         <h2 className="text-u">Login</h2>

@@ -1,215 +1,233 @@
 /* Login */
 
 .login-form-container {
-    max-width: 700px;
-    margin: 0 auto;
-    margin-top: 250px;
-    padding: 50px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f7f7f7;
-    height: 430px;
-    width: 600px;
+  max-width: 700px;
+  margin: 0 auto;
+  margin-top: 130px;
+  padding: 50px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  height: 430px;
+  width: 600px;
 }
 
 .btn-return-login {
-    padding: 10px;
-    font-size: 14px;
-    margin-top: -40px;
-    display: block;
-    margin-right: -40px;
-    float: right;
-    border-radius: 5px;
-    background-color: #283494;
-    color: #fff;
-    border: 1px solid #283494;
-    height: 40px;
-    width: 40px;
+  padding: 10px;
+  font-size: 14px;
+  margin-top: -40px;
+  display: block;
+  margin-right: -40px;
+  float: right;
+  border-radius: 5px;
+  background-color: #283494;
+  color: #fff;
+  border: 1px solid #283494;
+  height: 40px;
+  width: 40px;
+  transition: all 0.6s;
+  display: block;
+  text-align: center;
+  
+}
+
+.btn-return-login:hover {
+  background-color: #fff;
+  color: #000000;
+  /* hover lenta */
+  transition: all 0.6s;
+  border: 1px solid #283494;
+  box-shadow: 0px 4px 1px rgba(37, 37, 37, 0.397);
 }
 
 .login-form-container h2 {
-    text-align: center;
-    font-weight: 500;
-    font-size: 40px;
-    margin-top: -10px;
-    margin-bottom: -10px;
-    color: #283494;
+  text-align: center;
+  font-weight: 500;
+  font-size: 40px;
+  margin-top: -10px;
+  margin-bottom: -10px;
+  color: #283494;
 }
 
 .body1 {
-    background-image: url("/src/assets/fondo2.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    height: 1000px;
-    margin-top: -10px;
-    padding: 10px;
+  background-image: url("/src/assets/fondo2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 1000px;
+  margin-top: -10px;
+  padding: 10px;
 }
 
 .form-group {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 label {
-    display: block;
-    font-weight: bold;
+  display: block;
+  font-weight: bold;
 }
 
 .form-control {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .error-message {
-    color: red;
-    font-size: 14px;
-    margin-top: 5px;
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
 }
 
 .p {
-    text-decoration: none;
-    color: #283494;
-    font-size: 18px;
+  text-decoration: none;
+  color: #283494;
+  font-size: 18px;
 }
 
 .btn-login {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #283494;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #283494;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .btn-login {
-    background-color: #283494;
-    color: #ffff;
-    font-size: 16px;
-    width: 150px;
-    text-align: center;
-    font-weight: 500;
-    margin: 0 auto;
-    transition: background-color 0.3s, transform 0.6s, box-shadow 0.3s;
+  background-color: #283494;
+  color: #ffff;
+  font-size: 16px;
+  width: 150px;
+  text-align: center;
+  font-weight: 500;
+  margin: 0 auto;
+  transition: background-color 0.3s, transform 0.6s, box-shadow 0.3s;
 }
 
 .btn-login:hover {
-    background-color: #ffffffe3;
-    color: #000000;
-    border-color: rgba(3, 3, 3, 0.516);
-    box-shadow: 0px 4px 1px rgba(37, 37, 37, 0.397);
+  background-color: #ffffffe3;
+  color: #000000;
+  border-color: rgba(3, 3, 3, 0.516);
+  box-shadow: 0px 4px 1px rgba(37, 37, 37, 0.397);
 }
 
-
 /* Register */
-
 .registro-form-container {
-    max-width: 700px;
-    margin: 0 auto;
-    margin-top: 160px;
-    margin-bottom: 80px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f7f7f7;
-    height: 79%;
-    width: 800%;
-    padding: 50px;
-    padding-left: 30px;
-    padding-right: 30px;
+  max-width: 700px;
+  margin: 0 auto;
+  margin-top: 130px;
+  padding: 50px 60px; /* Ajusta el padding izquierdo y derecha */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  height: 798px;
+  width: 600px;
 }
 
 .btn-return-register {
-    padding: 10px;
-    font-size: 14px;
-    margin-top: -60px;
-    display: block;
-    margin-right: -10px;
-    float: right;
-    border-radius: 5px;
-    background-color: #283494;
-    color: #fff;
-    border: 1px solid #283494;
-    height: 40px;
-    width: 40px;
+  display: block;
+  float: right;
+  margin-top: -18%;
+  margin-right: -50px;
+  padding: 4px;
+  width: 40px;
+  height: 40px;
+  border-radius: 10%;
+  border: 1px solid #283494;
+  background-color: #283494;
+  color: #fff;
+  font-size: 14px;
+  transition: all 0.6s;
+}
+
+.btn-return-register:hover {
+  background-color: #fff;
+  color: #000;
+  box-shadow: 0px 4px 1px rgba(37, 37, 37, 0.397);
+  transition: all 0.6s;
 }
 
 .registro-form-container h2 {
-    text-align: center;
-    font-weight: 500;
-    font-size: 40px;
-    margin-top: -10px;
-    margin-bottom: -10px;
-    color: #283494;
+  text-align: center;
+  font-weight: 500;
+  font-size: 40px;
+  margin-top: -40px;
+  margin-bottom: -10px;
+  color: #283494;
 }
 
 .form-group {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 label {
-    display: block;
-    font-weight: bold;
+  display: block;
+  font-weight: bold;
 }
 
 .input-with-icon {
-    position: relative;
+  position: relative;
 }
 
 .input-with-icon input {
-    padding-left: 45px;
+  padding-left: 45px;
 }
 
 .input-with-icon i {
-    position: absolute;
-    left: 4px;
-    top: 35%;
-    transform: translateY(-50%);
+  position: absolute;
+  left: 4px;
+  top: 35%;
+  transform: translateY(-50%);
 }
 
 .form-control {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .error-message {
-    color: red;
-    font-size: 14px;
-    margin-top: 5px;
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
 }
 
 .btn-registro {
-    display: block;
-    width: 100%;
-    margin-top: 50px;
-    padding: 10px;
-    background-color: #283494;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #283494;
+  text-align: center;
+  justify-content: center;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .btn-registro {
-    background-color: #283494;
-    color: #ffff;
-    font-size: 16px;
-    width: 150px;
-    margin-top: 50px;
-    text-align: center;
-    font-weight: 500;
-    margin: 0 auto;
-    transition: background-color 0.3s, transform 0.6s, box-shadow 0.3s;
+  background-color: #283494;
+  color: #ffff;
+  font-size: 16px;
+  width: 150px;
+  text-align: center;
+  font-weight: 500;
+  margin: 0 auto;
+  transition: background-color 0.8s, transform 0.6s, box-shadow 0.3s;
 }
 
 .btn-registro:hover {
-    background-color: #ffffffe3;
-    color: #000000;
-    border-color: rgba(3, 3, 3, 0.516);
-    box-shadow: 0px 4px 1px rgba(37, 37, 37, 0.397);
+  background-color: #ffffffe3;
+  color: #000000;
+  border-color: rgba(3, 3, 3, 0.516);
+  box-shadow: 0px 4px 1px rgba(37, 37, 37, 0.397);
+  transition: all 0.6s;
 }
