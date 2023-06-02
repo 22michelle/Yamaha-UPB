@@ -67,6 +67,8 @@ const Status = () => {
     }
   };
 
+  const [selectedMotorcycle, setSelectedMotorcycle] = React.useState(null);
+
   return (
     <div className="body2">
       <div className="status">
@@ -75,7 +77,11 @@ const Status = () => {
           {" "}
           <span className="card p-4">Mis Ordenes anteriores</span>
           {motorcycles.map((motorcycle) => (
-            <div className="status-container" key={motorcycle.id}>
+            <div
+              className="status-container"
+              key={motorcycle.id}
+              onClick={() => setSelectedMotorcycle(motorcycle.id)}
+            >
               <div className="status-item">
                 <div className="status-item-title">
                   <h3 className="text-black">
