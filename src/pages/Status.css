@@ -28,19 +28,22 @@
   text-decoration: none;
   top: 50 px;
   border-radius: 10px;
-  
+  padding: 10px;
+  font-weight: bold;
 }
 
 .return:hover {
   transition: all 0.3s;
-  color: rgba(0, 0, 0, 0.572);
+  color: black;
+  background-color: #ffffff;
+  font-weight: bold;
+  border: 1px solid #000000;
   text-decoration: none;
 }
 .status-line {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 10px;
   margin-bottom: 10px;
 }
 

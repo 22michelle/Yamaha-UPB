@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Navbar } from "./components/common/Navbar.jsx";
 import { Home } from "./pages/Home.jsx";
@@ -27,11 +26,11 @@ const router = createBrowserRouter([
         element: <Register />,
       },
       {
-        path: "status",
+        path: "/status",
         element: <Status />,
       },
       {
-        path: "detail",
+        path: "/details/:motorcycleId",
         element: <Detailsstatus />,
       },
     ],

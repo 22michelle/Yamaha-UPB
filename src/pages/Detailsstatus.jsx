@@ -1,12 +1,13 @@
-import React from "react";
-import "./Status.css";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCheckCircle,
   faTimesCircle,
   faClock,
+  faFaceSadCry,
 } from "@fortawesome/free-solid-svg-icons";
+import "../pages/Status.css";
 
 const Detailsstatus = () => {
   const motorcycles = [
@@ -79,57 +80,71 @@ const Detailsstatus = () => {
     }
   };
 
-  return (
-    <>
+  const { motorcycleId } = useParams();
+
+  const selectedMotorcycle = motorcycles.find(
+    (motorcycle) => motorcycle.id === parseInt(motorcycleId)
+  );
+
+  if (!selectedMotorcycle) {
+    return (
       <div className="body2">
-        <div className="status">
-          {" "}
+        <div className="status-container">
+          <h1 className="text-black">
+            No se encontraron detalles de la motocicleta seleccionada{" "}
+          </h1>
+          <FontAwesomeIcon className="icon" icon={faFaceSadCry} />
           <Link to="/status" className="return p-3">
             <i className="fa-solid fa-angle-right fa-flip-both text-decoration-none"></i>{" "}
             Volver
           </Link>
-          <div className="status-line">
-            <div className="line"></div>
-            <span>Pendiente</span>
-            <div className="status-icon">
-              <FontAwesomeIcon icon={faClock} className="icon-pending" />
-            </div>
-            <span>Cancelado</span>
-            <div className="status-icon">
-              <FontAwesomeIcon icon={faTimesCircle} className="icon-error" />
-            </div>
-            <span>Éxito</span>
-            <div className="status-icon">
-              <FontAwesomeIcon icon={faCheckCircle} className="icon-success" />
-            </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      <div className="body2 m-4 mt-5 p-5">
+        <Link to="/status" className="return">
+          <i className="fa-solid fa-angle-right fa-flip-both text-decoration-none"></i>{" "}
+          Volver
+        </Link>
+        <div className="status-line">
+          <div className="line"></div>
+          <span>Pendiente</span>
+          <div className="status-icon">
+            <FontAwesomeIcon icon={faClock} className="icon-pending" />
           </div>
-          <div className="details card m-1 p-3">
-            <div className="card-header bg-white">
-              <h3 className="card-title m-2">Resumen del mantenimiento</h3>
-            </div>
-            {motorcycles.map((motorcycle) => (
-              <div className="status-container" key={motorcycle.id}>
-                <div className="status-item">
-                  <div className="status-item-title">
-                    <h3 className="text-black">
-                      {motorcycle.brand} {motorcycle.model}
-                    </h3>
-                    <p style={getStatusColor(motorcycle.status)}>
-                      <i className="fa-sharp fa-solid fa-circle m-2"></i>
-                      {motorcycle.status}
-                    </p>
-                  </div>
-                  <div className="status-item-details text-black">
-                    <p>
-                      <strong>Más detalles:</strong> {motorcycle.details}
-                    </p>
-                    <p>
-                      <strong>Total a pagar:</strong> ${motorcycle.total}
-                    </p>
-                  </div>
+          <span>Cancelado</span>
+          <div className="status-icon">
+            <FontAwesomeIcon icon={faTimesCircle} className="icon-error" />
+          </div>
+          <span>Éxitoso</span>
+          <div className="status-icon">
+            <FontAwesomeIcon icon={faCheckCircle} className="icon-success" />
+          </div>
+        </div>
+
+        <div className="status">
+          <h1 className="fw-bold">Detalles de mi motocicleta</h1>
+          <div className="details p-4">
+            <div className="status-container">
+              <div className="status-item">
+                <div className="status-item-title">
+                  <h3 className="text-black">
+                    {/* nombre y estado */}
+                    {selectedMotorcycle.brand} {selectedMotorcycle.model}
+                  </h3>
+                  <p style={getStatusColor(selectedMotorcycle.status)}>
+                    <i className="fa-sharp fa-solid fa-circle m-2"></i>
+                    {selectedMotorcycle.status}
+                  </p>
+                  <p className="text-black">{selectedMotorcycle.details}</p>
                 </div>
+                <div className="status-item-state"></div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </div>
