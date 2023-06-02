@@ -7,6 +7,7 @@ import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
 import Status from "./pages/Status.jsx";
 import Detailsstatus from "./pages/Detailsstatus.jsx";
+import Detail from "./pages/Detail.jsx";
 
 const router = createBrowserRouter([
   {

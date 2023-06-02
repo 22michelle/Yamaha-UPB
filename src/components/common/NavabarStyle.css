@@ -7,12 +7,13 @@
   right: 0;
   z-index: 100;
   background-color: transparent;
-  transition: background-color 1.1s;
+  height: 5.15rem;
+  transition: background-color 1.0s;
 }
 
 .navbar.scrolled {
-  background-color: #ffffffec;
-}
+    background-color: #ffffff;
+  }
 
 .navbar .logo {
   color: #b83434;
@@ -24,7 +25,6 @@
 .navbar .logo:hover {
   height: 50px;
   width: 180px;
-  /* hacer una transision lenta */
   transition: all 0.9s;
 }
 
