@@ -24,6 +24,11 @@ const Footer = () => {
             <a href="tel:42321316">
               <i class="fa-solid fa-phone me-1"></i>Teléfono: 42321316
             </a>
+            <br />
+            <a href="mailto:ejeyd@example.com">
+              <i class="fa-solid fa-envelope me-1 mt-3"></i>Email:
+              info@incolmotos-yamaha.com.co
+            </a>
           </div>
           <div className="col-md-6">
             <h3>Síguenos en redes sociales</h3>

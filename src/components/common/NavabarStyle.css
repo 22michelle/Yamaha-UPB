@@ -1,20 +1,31 @@
 .navbar {
   display: flex;
   justify-content: flex-start;
-  box-shadow: 0px 4px 10px rgba(31, 1, 252, 0.692);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: transparent;
+  height: 5.15rem;
+  transition: background-color 1.0s;
 }
 
+.navbar.scrolled {
+    background-color: #ffffff;
+  }
+
 .navbar .logo {
-  color: #fff;
+  color: #b83434;
   height: 50px;
   max-width: 180px;
+  transition: all 0.9s;
 }
 
 .navbar .logo:hover {
-  color: #fff;
   height: 50px;
   width: 180px;
-  box-shadow: 0px 4px 1px rgba(31, 1, 252, 0.692);
+  transition: all 0.9s;
 }
 
 .top-fixed {
@@ -26,19 +37,15 @@
 }
 
 .btn {
-  /* background-color: #283494; */
   color: #ffffff;
   background-color: #28247a;
   font-size: 16px;
-  font-family: "Times New Roman", Times, serif;
   font-weight: bold;
   width: 150px;
   text-align: center;
   border-color: rgba(0, 0, 2, 0.318);
   font-weight: 500;
   position: relative;
-
-  box-shadow: 0px 4px 1px rgba(48, 47, 53, 0.579);
   transition: background-color 0.3s, transform 0.6s, box-shadow 0.3s;
 }
 

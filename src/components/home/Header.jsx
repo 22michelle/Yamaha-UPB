@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
-    <div className="body">
+    <div className="body1">
       <div className="text-center">
         <div className="banner-container">
           <div className="Title">

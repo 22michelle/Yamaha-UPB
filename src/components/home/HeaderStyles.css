@@ -1,24 +1,23 @@
 .banner-container {
-  position: relative;
-  display: inline-block;
+    position: relative;
+    display: inline-block;
 }
 
 .Title {
-  margin-top: 400px;
-  text-align: center;
-  font-size: 48px;
-  color: #000000;
-  background-color: rgb(255, 255, 255);
-  padding: 30px;
-  border-radius: 5px;
-  background-attachment: fixed;
+    margin-top: 300px;
+    text-align: center;
+    font-size: 48px;
+    color: #fffffff5;
+    padding: 30px;
+    border-radius: 5px;
+    background-attachment: fixed;
 }
 
 .body {
-  background-image: url("/src/assets/fondo.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  padding: 10px;
+    background-image: url("/src/assets/fondo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding: 10px;
 }

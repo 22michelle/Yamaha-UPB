@@ -26,9 +26,14 @@ const Registro = () => {
   };
 
   return (
-    <div className="body">
+    <div className="body1">
       <div className="registro-form-container">
-        <h2>Registrate</h2>
+        <h2 className="p-4">Registrate</h2>
+        <Link to="/">
+          <button className="btn-return-register">
+          <i class="fa-solid fa-x mt-1"></i>
+          </button>
+        </Link>
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
