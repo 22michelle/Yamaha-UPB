@@ -47,7 +47,6 @@
   text-decoration: none;
   top: 50 px;
   border-radius: 10px;
-
   padding: 10px;
   font-weight: bold;
   margin-top: 20px;
@@ -55,7 +54,6 @@
 
 .return:hover {
   transition: all 0.3s;
-
   color: black;
   background-color: #ffffff;
   font-weight: bold;
@@ -69,6 +67,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  margin-top: 15px;
   margin-bottom: 10px;
 }
 
