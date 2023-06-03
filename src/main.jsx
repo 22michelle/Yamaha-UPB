@@ -1,11 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Navbar } from "./components/common/Navbar.jsx";
 import { Home } from "./pages/Home.jsx";
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
+import Status from "./pages/Status.jsx";
+import Detailsstatus from "./pages/Detailsstatus.jsx";
+import Detail from "./pages/Detailsstatus.jsx";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +25,14 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/status",
+        element: <Status />,
+      },
+      {
+        path: "/details/:id",
+        element: <Detailsstatus />,
       },
     ],
   },
