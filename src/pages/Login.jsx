@@ -2,9 +2,13 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import "./Styles.css";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { login, verifyLogin } from "../redux/authSlice";
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const { isLoged, setIsLoged } = useSelector((state) => state.authStore);
   const initialValues = {
     cedula: "",
     password: "",
@@ -15,24 +19,28 @@ const Login = () => {
     password: Yup.string().required("Ingrese su contraseña"),
   });
 
-  const handleSubmit = (values) => {
-    console.log(values);
-  };
-
+  // const access = (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     response = dispatch(login(initialValues));
+  //     dispatch(verifyLogin()) ;
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   }
+  // };
   return (
     <div className="body1">
       <div className="login-form-container">
         {/* button return */}
         <Link to="/">
           <button className="btn-return-login">
-          <i class="fa-solid fa-x mt-1"></i>
+            <i class="fa-solid fa-x mt-1"></i>
           </button>
         </Link>
         <h2 className="text-u">Login</h2>
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
-          onSubmit={handleSubmit}
         >
           <Form>
             <div className="form-group">
@@ -88,7 +96,10 @@ const Login = () => {
                 .
               </p>
             </div>
-            <Link to="/status" className="text-decoration-none">
+            <Link
+              to={isLoged ? "/status" : "/"}
+              className="text-decoration-none"
+            >
               <button type="submit" className="btn-login">
                 Iniciar sesión
               </button>
