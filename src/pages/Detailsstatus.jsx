@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -78,6 +78,13 @@ const Detailsstatus = () => {
       default:
         return { color: "black" };
     }
+  };
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogout = () => {
+    // realizar el logout
+    setIsLoggedIn(false);
   };
 
   // Obtener el ID de la motocicleta seleccionada desde la URL

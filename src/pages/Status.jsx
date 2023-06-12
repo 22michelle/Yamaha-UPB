@@ -73,6 +73,13 @@ const Status = () => {
     }
   };
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogout = () => {
+    // realizar el logout
+    setIsLoggedIn(false);
+  };
+
   const [selectedMotorcycle, setSelectedMotorcycle] = useState(null);
 
   const handleMotorcycleClick = (motorcycle) => {

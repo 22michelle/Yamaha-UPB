@@ -1,8 +1,24 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import "./NavabarStyle.css";
 
 export const Navbar = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    // Aquí puedes realizar la lógica de autenticación, por ejemplo, verificar si hay un token válido en el almacenamiento local
+
+    // Supongamos que la autenticación fue exitosa
+    setIsAuthenticated(true);
+  }, []);
+
+  const handleLogout = () => {
+    // Aquí puedes realizar la lógica de logout, por ejemplo, eliminar el token del almacenamiento local y redirigir al usuario a la página de inicio de sesión
+
+
+    setIsAuthenticated(false);
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       const navbar = document.querySelector(".navbar");
@@ -30,18 +46,31 @@ export const Navbar = () => {
             />
           </NavLink>{" "}
           <div className="row flex-end text-wrap">
-            <div className="col m-3">
-              <NavLink to="/register">
-                <button className="btn text-u">Registro</button>
-              </NavLink>
-            </div>
-            <div className="col m-3">
-              <NavLink to="/login">
-                <button className="btn">
-                  Login <i class="fa-solid fa-right-to-bracket me-2" />
+            {isAuthenticated ? (
+              <div className="col m-3">
+                <NavLink to="/">
+                  <button className="btn" onClick={handleLogout}>
+                  Logout
                 </button>
-              </NavLink>
-            </div>
+                </NavLink>
+                
+              </div>
+            ) : (
+              <>
+                <div className="col m-3">
+                  <NavLink to="/register">
+                    <button className="btn text-u">Registro</button>
+                  </NavLink>
+                </div>
+                <div className="col m-3">
+                  <NavLink to="/login">
+                    <button className="btn">
+                      Login <i className="fa-solid fa-right-to-bracket me-2" />
+                    </button>
+                  </NavLink>
+                </div>
+              </>
+            )}
           </div>
         </div>{" "}
       </nav>
