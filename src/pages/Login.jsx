@@ -1,8 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import "./Styles.css";
+import axios from "axios";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { login, logout } from "../redux/authSlice";
 
 const Login = () => {
   const initialValues = {
@@ -10,13 +13,36 @@ const Login = () => {
     password: "",
   };
 
+  const dispatch = useDispatch();
+
+  const handleLogin = (user) => {
+    dispatch(login(user));
+  };
+  const handleLogout = () => {
+    dispatch(logout());
+  };
+
+  const [error, setError] = useState(null);
+
   const validationSchema = Yup.object().shape({
     cedula: Yup.string().required("Ingrese su número de cédula"),
     password: Yup.string().required("Ingrese su contraseña"),
   });
 
-  const handleSubmit = (values) => {
-    console.log(values);
+  const handleSubmit = async (values) => {
+    try {
+      const response = await axios.post("/auth/login", values);
+      if (response.data.success) {
+        // Redireciona a "/status" route si se logue a el cliente
+        window.location.href = "/status";
+      } else {
+        setError("Usuario no encontrado en la base de datos");
+      }
+    } catch (error) {
+      setError(
+        "Error al iniciar sesión. Por favor, verifique sus credenciales."
+      );
+    }
   };
 
   return (
@@ -25,7 +51,7 @@ const Login = () => {
         {/* button return */}
         <Link to="/">
           <button className="btn-return-login">
-          <i class="fa-solid fa-x mt-1"></i>
+            <i className="fa-solid fa-x mt-1"></i>
           </button>
         </Link>
         <h2 className="text-u">Login</h2>
@@ -88,11 +114,11 @@ const Login = () => {
                 .
               </p>
             </div>
-            <Link to="/status" className="text-decoration-none">
-              <button type="submit" className="btn-login">
-                Iniciar sesión
-              </button>
-            </Link>
+            {/* <Link to="/status" className="text-decoration-none"> */}
+            <button type="submit" onClick={() => handleLogin({ user: 'exampleUser' })} className="btn-login">
+              Iniciar sesión
+            </button>
+            {/* </Link> */}
           </Form>
         </Formik>
       </div>
