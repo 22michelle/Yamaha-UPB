@@ -27,12 +27,11 @@ export const verifyLogin = createAsyncThunk(
     "authSlice/verifyLogin",
     async(_, { dispatch, rejectWithValue }) => {
         try {
-            const data = localStorage.getItem(user);
-            if (!data) {
+            const token = sessionStorage.getItem(token);
+            if (!token) {
                 return dispatch(logout());
             }
-
-            return JSON.parse(data);
+            return token;
         } catch (error) {
             return rejectWithValue(error.message);
         }

@@ -1,6 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import {
+  Navigate,
+  RouterProvider,
+  createBrowserRouter,
+} from "react-router-dom";
 import { Navbar } from "./components/common/Navbar.jsx";
 import { Home } from "./pages/Home.jsx";
 import Login from "./pages/Login.jsx";
@@ -8,7 +12,7 @@ import Register from "./pages/Register.jsx";
 import Status from "./pages/Status.jsx";
 import Detailsstatus from "./pages/Detailsstatus.jsx";
 import axios from "axios";
-import { Provider } from "react-redux";
+import { Provider, useDispatch, useSelector } from "react-redux";
 import store from "./redux/store.js";
 
 const router = createBrowserRouter([
