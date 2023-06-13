@@ -11,15 +11,17 @@ export const login = createAsyncThunk(
     "authSlice/login",
     async(user, { dispatch, rejectWithValue }) => {
         try {
-            const { data } = await axios.post(`/login`, user);
+            const { data } = await axios.post(`/auth/login`, user);
             // se guarda todo el usuario en el localstorage con el token incluido
             localStorage.setItem("user", JSON.stringify(data.data));
+            sessionStorage.setItem("token", JSON.stringify(data.data.token))
             return data.data;
         } catch (error) {
             return rejectWithValue(error.response.data.message);
         }
     }
 );
+
 
 export const verifyLogin = createAsyncThunk(
     "authSlice/verifyLogin",
@@ -39,15 +41,19 @@ export const verifyLogin = createAsyncThunk(
 
 export const logout = createAsyncThunk("authSlice/logout", async(_, {}) => {
     localStorage.removeItem("user");
+    sessionStorage.removeItem("token")
 });
 
 const authSlice = createSlice({
     name: "authSlice",
     initialState,
     reducers: {
-        setLoged: (state, action) => {
+        setIsLoged: (state, action) => {
             state.isLoged = true;
         },
+        setUser: (state, action) => {
+            state.user = localStorage.getItem("user")
+        }
     },
     extraReducers: (builder) => {
         builder.addCase(login.pending, (state, action) => {
@@ -84,6 +90,6 @@ const authSlice = createSlice({
     },
 });
 
-export const { setLoged } = authSlice.actions;
+export const { setIsLoged, setUser } = authSlice.actions;
 
 export default authSlice.reducer;
