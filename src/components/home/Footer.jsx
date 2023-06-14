@@ -17,7 +17,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <i class="fa-solid fa-location-dot me-1" />
+                <i className="fa-solid fa-location-dot me-1" />
                 Cl. 37 #45-15 YAMAHA San Diego
               </a>
             </p>

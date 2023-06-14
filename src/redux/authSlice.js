@@ -14,7 +14,6 @@ export const login = createAsyncThunk(
             const { data } = await axios.post(`/auth/login`, user);
             // se guarda todo el usuario en el localstorage con el token incluido
             localStorage.setItem("user", JSON.stringify(data.data));
-            sessionStorage.setItem("token", JSON.stringify(data.data.token))
             return data.data;
         } catch (error) {
             return rejectWithValue(error.response.data.message);

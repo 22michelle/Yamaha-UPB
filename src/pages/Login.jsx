@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { login, logout, verifyLogin } from "../redux/authSlice";
 import { useForm } from "react-hook-form";
+import { unwrapResult } from "@reduxjs/toolkit";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -15,8 +16,13 @@ const Login = () => {
   const access = handleSubmit(async (values, e) => {
     e.preventDefault();
     try {
-      const response = dispatch(login(values));
-      if (checkLoginStatus()) {
+      const response = await dispatch(login(values));
+
+      if (response.type === "authSlice/login/fulfilled") {
+        sessionStorage.setItem("token", response.payload.token);
+      }
+      const token = sessionStorage.getItem("token");
+      if (token === response.payload.token) {
         return navigate("/status");
       }
     } catch (error) {
@@ -24,15 +30,7 @@ const Login = () => {
     }
   });
 
-  const checkLoginStatus = async () => {
-    const authToken = sessionStorage.getItem("token");
-    if (!authToken) {
-      return dispatch(logout());
-    }
-    return authToken;
-  };
   useEffect(() => {
-    checkLoginStatus();
     if (!localStorage.getItem("user")) {
       dispatch(logout());
     }

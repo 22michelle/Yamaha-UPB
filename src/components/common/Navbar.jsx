@@ -28,7 +28,7 @@ export const Navbar = () => {
     <div>
       <nav className="navbar">
         <div className="container">
-          <NavLink to="/">
+          <NavLink to="/" onClick={() => logOut()}>
             <img
               className="logo"
               src="/src/assets/yamaha-12.svg"
@@ -38,19 +38,19 @@ export const Navbar = () => {
             />
           </NavLink>{" "}
           <div className="row flex-end text-wrap">
-            {location.pathname !== "/" ? (
+            {location.pathname === "/" || location.pathname === "/login" ? (
               <div className="col m-3">
-                <NavLink>
-                  <button className="btn" onClick={() => logOut()}>
-                    Logout <i className="fa-solid fa-right-to-bracket me-2" />
+                <NavLink to="/login">
+                  <button className="btn">
+                    Login <i className="fa-solid fa-right-to-bracket me-2" />
                   </button>
                 </NavLink>
               </div>
             ) : (
               <div className="col m-3">
-                <NavLink to="/login">
-                  <button className="btn">
-                    Login <i className="fa-solid fa-right-to-bracket me-2" />
+                <NavLink>
+                  <button className="btn" onClick={() => logOut()}>
+                    Logout <i className="fa-solid fa-right-to-bracket me-2" />
                   </button>
                 </NavLink>
               </div>
