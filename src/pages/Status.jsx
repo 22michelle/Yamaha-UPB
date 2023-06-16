@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../pages/Status.css";
+import { useDispatch } from "react-redux";
+import { logout } from "../redux/authSlice";
 
 const Status = () => {
   const motorcycles = [

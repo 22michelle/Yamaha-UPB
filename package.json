@@ -18,6 +18,10 @@
     "formik": "^2.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+<<<<<<< HEAD
+=======
+    "react-hook-form": "^7.44.3",
+>>>>>>> 4bdec4053e6f392d051a916cf08d19840b39ac26
     "react-redux": "^8.0.7",
     "react-router-dom": "^6.11.2",
     "redux": "^4.2.1",

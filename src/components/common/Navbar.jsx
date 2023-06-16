@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
+=======
+import React, { useEffect } from "react";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
+>>>>>>> 4bdec4053e6f392d051a916cf08d19840b39ac26
 import "./NavabarStyle.css";
+import { useDispatch } from "react-redux";
+import { logout } from "../../redux/authSlice";
 
 export const Navbar = () => {
+<<<<<<< HEAD
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
@@ -19,6 +27,9 @@ export const Navbar = () => {
     setIsAuthenticated(false);
   };
 
+=======
+  const location = useLocation();
+>>>>>>> 4bdec4053e6f392d051a916cf08d19840b39ac26
   useEffect(() => {
     const handleScroll = () => {
       const navbar = document.querySelector(".navbar");
@@ -31,6 +42,11 @@ export const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const dispatch = useDispatch();
+  const logOut = () => {
+    dispatch(logout());
+  };
 
   return (
     <div>
@@ -46,6 +62,7 @@ export const Navbar = () => {
             />
           </NavLink>{" "}
           <div className="row flex-end text-wrap">
+<<<<<<< HEAD
             {isAuthenticated ? (
               <div className="col m-3">
                 <NavLink to="/">
@@ -70,6 +87,24 @@ export const Navbar = () => {
                   </NavLink>
                 </div>
               </>
+=======
+            {location.pathname !== "/" ? (
+              <div className="col m-3">
+                <NavLink>
+                  <button className="btn" onClick={() => logOut()}>
+                    Logout <i className="fa-solid fa-right-to-bracket me-2" />
+                  </button>
+                </NavLink>
+              </div>
+            ) : (
+              <div className="col m-3">
+                <NavLink to="/login">
+                  <button className="btn">
+                    Login <i className="fa-solid fa-right-to-bracket me-2" />
+                  </button>
+                </NavLink>
+              </div>
+>>>>>>> 4bdec4053e6f392d051a916cf08d19840b39ac26
             )}
           </div>
         </div>{" "}
