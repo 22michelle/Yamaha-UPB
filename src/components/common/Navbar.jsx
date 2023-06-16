@@ -14,15 +14,11 @@ export const Navbar = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    // Aquí puedes realizar la lógica de autenticación, por ejemplo, verificar si hay un token válido en el almacenamiento local
-
-    // Supongamos que la autenticación fue exitosa
+     
     setIsAuthenticated(true);
   }, []);
 
   const handleLogout = () => {
-    // Aquí puedes realizar la lógica de logout, por ejemplo, eliminar el token del almacenamiento local y redirigir al usuario a la página de inicio de sesión
-
 
     setIsAuthenticated(false);
   };
