@@ -1,100 +1,92 @@
-import React from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
+import React, { useEffect } from "react";
 import "./Styles.css";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+import { login, logout, verifyLogin } from "../redux/authSlice";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
-  const initialValues = {
-    cedula: "",
-    password: "",
-  };
+  const dispatch = useDispatch();
+  const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
+  const location = useLocation();
+  // const isLoged = useSelector((state) => state.auth.isLoged);
 
-  const validationSchema = Yup.object().shape({
-    cedula: Yup.string().required("Ingrese su número de cédula"),
-    password: Yup.string().required("Ingrese su contraseña"),
+  const access = handleSubmit(async (values, e) => {
+    e.preventDefault();
+    try {
+      const response = dispatch(login(values));
+      if (checkLoginStatus()) {
+        return navigate("/status");
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
   });
 
-  const handleSubmit = (values) => {
-    console.log(values);
+  const checkLoginStatus = async () => {
+    const authToken = sessionStorage.getItem("token");
+    if (!authToken) {
+      return dispatch(logout());
+    }
+    return authToken;
   };
-
+  useEffect(() => {
+    checkLoginStatus();
+    if (!localStorage.getItem("user")) {
+      dispatch(logout());
+    }
+  }, [dispatch]);
   return (
     <div className="body1">
       <div className="login-form-container">
-        {/* button return */}
         <Link to="/">
           <button className="btn-return-login">
-          <i class="fa-solid fa-x mt-1"></i>
+            <i className="fa-solid fa-x mt-1"></i>
           </button>
         </Link>
         <h2 className="text-u">Login</h2>
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          onSubmit={handleSubmit}
-        >
-          <Form>
-            <div className="form-group">
-              <label htmlFor="cedula">Cédula</label>
-              <Field name="cedula">
-                {({ field }) => (
-                  <div className="input-with-icon">
-                    <i className="fa-solid fa-address-card fs-4 m-2" />
-                    <input
-                      {...field}
-                      type="text"
-                      id="cedula"
-                      className="form-control"
-                      placeholder="Ingrese su cédula"
-                    />
-                  </div>
-                )}
-              </Field>
-              <ErrorMessage
-                name="cedula"
-                component="div"
-                className="error-message"
+
+        <form onSubmit={access}>
+          <div className="form-group">
+            <label htmlFor="cedula">Cédula</label>
+            <div className="input-with-icon">
+              <i className="fa-solid fa-address-card fs-4 m-2" />
+              <input
+                type="text"
+                {...register("docNum", { required: true })}
+                id="cedula"
+                className="form-control"
+                placeholder="Ingrese su cédula"
+              />
+            </div>
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="password">Contraseña</label>
+            <div className="input-with-icon">
+              <i className="fa-solid fa-key fs-4 m-2" />
+              <input
+                type="password"
+                {...register("password", { required: true })}
+                id="password"
+                className="form-control"
+                placeholder="Ingrese su contraseña"
               />
             </div>
 
-            <div className="form-group">
-              <label htmlFor="password">Contraseña</label>
-              <Field name="password">
-                {({ field }) => (
-                  <div className="input-with-icon">
-                    <i className="fa-solid fa-key fs-4 m-2" />
-                    <input
-                      {...field}
-                      type="password"
-                      id="password"
-                      className="form-control"
-                      placeholder="Ingrese su contraseña"
-                    />
-                  </div>
-                )}
-              </Field>
-              <ErrorMessage
-                name="password"
-                component="div"
-                className="error-message"
-              />
-
-              <p>
-                ¿Aún no tienes una cuenta? Regístrate{" "}
-                <Link to="/register" className="p">
-                  aquí
-                </Link>
-                .
-              </p>
-            </div>
-            <Link to="/status" className="text-decoration-none">
-              <button type="submit" className="btn-login">
-                Iniciar sesión
-              </button>
-            </Link>
-          </Form>
-        </Formik>
+            <p>
+              ¿Aún no tienes una cuenta? Regístrate{" "}
+              <Link to="/register" className="p">
+                aquí
+              </Link>
+              .
+            </p>
+          </div>
+          <button type="submit" className="btn-login">
+            Iniciar sesión
+          </button>
+        </form>
       </div>
     </div>
   );
