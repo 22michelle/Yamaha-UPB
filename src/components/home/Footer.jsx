@@ -17,16 +17,16 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <i class="fa-solid fa-location-dot me-1" />
+                <i className="fa-solid fa-location-dot me-1" />
                 Cl. 37 #45-15 YAMAHA San Diego
               </a>
             </p>
             <a href="tel:42321316">
-              <i class="fa-solid fa-phone me-1"></i>Teléfono: 42321316
+              <i className="fa-solid fa-phone me-1"></i>Teléfono: 42321316
             </a>
             <br />
             <a href="mailto:ejeyd@example.com">
-              <i class="fa-solid fa-envelope me-1 mt-3"></i>Email:
+              <i className="fa-solid fa-envelope me-1 mt-3"></i>Email:
               info@incolmotos-yamaha.com.co
             </a>
           </div>

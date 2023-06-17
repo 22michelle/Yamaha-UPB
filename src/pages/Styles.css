@@ -1,5 +1,16 @@
 /* Login */
 
+.body1 {
+  background-image: url("/src/assets/fondo2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 1000px;
+  margin-top: -10px;
+  padding: 10px;
+}
+
 .login-form-container {
   max-width: 700px;
   margin: 0 auto;
@@ -28,13 +39,11 @@
   transition: all 0.6s;
   display: block;
   text-align: center;
-  
 }
 
 .btn-return-login:hover {
   background-color: #fff;
   color: #000000;
-  /* hover lenta */
   transition: all 0.6s;
   border: 1px solid #283494;
   box-shadow: 0px 4px 1px rgba(37, 37, 37, 0.397);
@@ -47,17 +56,6 @@
   margin-top: -10px;
   margin-bottom: -10px;
   color: #283494;
-}
-
-.body1 {
-  background-image: url("/src/assets/fondo2.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  height: 1000px;
-  margin-top: -10px;
-  padding: 10px;
 }
 
 .form-group {
@@ -117,6 +115,25 @@ label {
   box-shadow: 0px 4px 1px rgba(37, 37, 37, 0.397);
 }
 
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+
 /* Register */
 .registro-form-container {
   max-width: 700px;
@@ -173,7 +190,19 @@ label {
 
 .input-with-icon {
   position: relative;
+  display: flex;
+  align-items: center;
 }
+
+.input-with-icon i {
+  margin: 0.5rem;
+}
+
+.error-message {
+  margin: 10px;
+  margin-right: 1rem;
+}
+
 
 .input-with-icon input {
   padding-left: 45px;
@@ -185,6 +214,8 @@ label {
   top: 35%;
   transform: translateY(-50%);
 }
+
+
 
 .form-control {
   width: 100%;

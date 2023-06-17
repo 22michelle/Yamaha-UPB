@@ -38,7 +38,7 @@ export const Navbar = () => {
             <div className="col m-3">
               <NavLink to="/login">
                 <button className="btn">
-                  Login <i class="fa-solid fa-right-to-bracket me-2" />
+                  Login <i className="fa-solid fa-right-to-bracket me-2" />
                 </button>
               </NavLink>
             </div>
