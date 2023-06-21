@@ -1,65 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCheckCircle,
   faTimesCircle,
   faClock,
-  faSadCry
+  faSadCry,
 } from "@fortawesome/free-solid-svg-icons";
 import "../pages/Status.css";
+import { getServiceById } from "../redux/serviceSlice";
 
 const Detailsstatus = () => {
-  const motorcycles = [
-    {
-      id: 1,
-      brand: "Yamaha",
-      model: "MT-07",
-      status: "Ok, lista para entregar",
-      details:
-        "Nuestro equipo técnico ha realizado un exhaustivo proceso de revisión y aseguramiento de calidad para garantizar que su motocicleta esté en óptimas condiciones antes de la entrega. Hemos llevado a cabo todos los procedimientos necesarios para asegurar su plena satisfacción. Le invitamos a ponerse en contacto con nuestro departamento de atención al cliente para coordinar los detalles finales de la entrega. Estaremos encantados de programar una fecha y hora conveniente para usted.",
-    },
-    {
-      id: 2,
-      brand: "Yamaha",
-      model: "CBR600RR",
-      status: "Pendiente por asignar al técnico",
-      details:
-        " En este momento, su motocicleta ha sido asignada a uno de nuestros técnicos y está en proceso de ser atendida.",
-    },
-    {
-      id: 3,
-      brand: "Yamaha",
-      model: "Ninja 300",
-      status: "Esperando autorización",
-      details:
-        "En este momento, estamos a la espera de recibir la autorización correspondiente para proceder con los trabajos de mantenimiento y reparación solicitados.",
-    },
-    {
-      id: 4,
-      brand: "Yamaha",
-      model: "Ninja 300",
-      status: "En reparación",
-      details:
-        "Nuestro equipo de técnicos altamente capacitados está trabajando arduamente para llevar a cabo los trabajos de mantenimiento y reparación necesarios.",
-    },
-    {
-      id: 5,
-      brand: "Yamaha",
-      model: "Ninja 300",
-      status: "Esperando por repuestos",
-      details:
-        "Durante este proceso, su motocicleta está esperando los repuestos y materiales necesarios para llevar a cabo las reparaciones.",
-    },
-    {
-      id: 6,
-      brand: "Yamaha",
-      model: "Ninja 300",
-      status: "Pendiente por trabajos externos",
-      details:
-        "Su motocicleta se encuentra en espera debido a trabajos externos que deben llevarse a cabo como parte del proceso de mantenimiento. Estamos coordinando con nuestros proveedores y especialistas para realizar estos trabajos adicionales necesarios para garantizar que su motocicleta reciba el mejor cuidado y servicio posible.",
-    },
-  ];
+  const { services } = useSelector((status) => status.serviceStore);
+
+  const dispatch = useDispatch();
 
   const getStatusColor = (status) => {
     switch (status) {
@@ -81,30 +36,40 @@ const Detailsstatus = () => {
   };
 
   // Obtener el ID de la motocicleta seleccionada desde la URL
-  const { id } = useParams();
+  const { _id } = useParams();
 
-  // Filtrar el array de motocicletas para obtener los detalles de la motocicleta seleccionada
-  const selectedMotorcycle = motorcycles.find(
-    (motorcycle) => motorcycle.id === parseInt(id)
-  );
+  const getService = async () => {
+    try {
 
-  if (!selectedMotorcycle) {
-    return (
-      <div className="body2">
-        <div className="status mt-5 p-2 m-4 text-center">
-          <div className="details card mt-5 m-1 p-3">
-            <div className="card-header bg-white">
-              <div className="status-container">
-                <h1 className="text-black">Los detalles de esta motocicleta no existen <FontAwesomeIcon icon="fa-light fa-face-sad-cry" /></h1>
-                <FontAwesomeIcon icon={faSadCry} />
+      const data = await dispatch(getServiceById(_id));
+      console.log(data);
+      if (!data) {
+        return (
+          <div className="body2">
+            <div className="status mt-5 p-2 m-4 text-center">
+              <div className="details card mt-5 m-1 p-3">
+                <div className="card-header bg-white">
+                  <div className="status-container">
+                    <h1 className="text-black">
+                      Los detalles de esta motocicleta no existen{" "}
+                      <FontAwesomeIcon icon="fa-light fa-face-sad-cry" />
+                    </h1>
+                    <FontAwesomeIcon icon={faSadCry} />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-    );
-  }
+        );
+      }
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    getService();
+  }, [id]);
 
   return (
     <>
@@ -137,22 +102,14 @@ const Detailsstatus = () => {
               <div className="status-item">
                 <div className="status-item-title">
                   <h3 className="text-black">
-                    {selectedMotorcycle.brand} {selectedMotorcycle.model}
+                    {services.campus} {services.placa}
                   </h3>
-                  <p style={getStatusColor(selectedMotorcycle.status)}>
+                  <p style={getStatusColor(services.state)}>
                     <i className="fa-sharp fa-solid fa-circle m-2"></i>
-                    {selectedMotorcycle.status}
+                    {services.state}
                   </p>
                 </div>
                 <div className="status-item-details text-black">
-                  <p>
-                    <strong>Más detalles:</strong>{" "}
-                    {selectedMotorcycle.details}
-                  </p>
-                  <p>
-                    <strong>Total a pagar:</strong> $
-                    {selectedMotorcycle.total}
-                  </p>
                 </div>
               </div>
             </div>
