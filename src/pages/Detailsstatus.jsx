@@ -40,7 +40,6 @@ const Detailsstatus = () => {
 
   const getService = async () => {
     try {
-
       const data = await dispatch(getServiceById(_id));
       console.log(data);
       if (!data) {
@@ -68,8 +67,8 @@ const Detailsstatus = () => {
     }
   };
   useEffect(() => {
-    getService();
-  }, [id]);
+    // getService();
+  }, [_id]);
 
   return (
     <>
@@ -101,15 +100,43 @@ const Detailsstatus = () => {
             <div className="status-container">
               <div className="status-item">
                 <div className="status-item-title">
-                  <h3 className="text-black">
-                    {services.campus} {services.placa}
-                  </h3>
+                  <h3 className="text-black">Estado</h3>
                   <p style={getStatusColor(services.state)}>
-                    <i className="fa-sharp fa-solid fa-circle m-2"></i>
-                    {services.state}
+                    <i
+                      className="fa-solid fa-motorcycle m-2"
+                      style={{
+                        color: "green",
+                      }}
+                    ></i>
+                    En proceso de Reparación
                   </p>
                 </div>
                 <div className="status-item-details text-black">
+                  <p>
+                    <i className="fa-solid fa-address-book m-2"></i>
+                    Orden: 125
+                  </p>
+                </div>
+                <div className="status-item-details text-black">
+                  <p>
+                    <i className="fa-solid fa-calendar-days m-2"></i>
+                    Comienzo del Proceso: 2023-06-01
+                  </p>
+                </div>
+                <div className="status-item-details text-black">
+                  <p>
+                    <i className="fa-solid fa-calendar-days m-2"></i>
+                    Fecha estimada de finalización: 2023-06-03
+                  </p>
+                </div>
+                <div className="status-item-details text-black">
+                  <p>
+                    <i
+                      className="fa-solid fa-circle-exclamation m-2"
+                      style={{ color: "red" }}
+                    ></i>
+                    Novedades: No reportadas/Inexistentes
+                  </p>
                 </div>
               </div>
             </div>

@@ -4,6 +4,7 @@ import axios from "axios";
 const initialState = {
     user: null,
     isLoged: false,
+    isLoading: false,
     token: null,
 };
 
@@ -20,7 +21,6 @@ export const login = createAsyncThunk(
         }
     }
 );
-
 
 export const verifyLogin = createAsyncThunk(
     "authSlice/verifyLogin",
@@ -39,7 +39,7 @@ export const verifyLogin = createAsyncThunk(
 
 export const logout = createAsyncThunk("authSlice/logout", async(_, {}) => {
     localStorage.removeItem("user");
-    sessionStorage.removeItem("token")
+    sessionStorage.removeItem("token");
 });
 
 const authSlice = createSlice({
@@ -50,24 +50,30 @@ const authSlice = createSlice({
             state.isLoged = true;
         },
         setUser: (state, action) => {
-            state.user = localStorage.getItem("user")
-        }
+            state.user = localStorage.getItem("user");
+        },
+        setIsLoading: (state, action) => {
+            state.isLoading = action.payload;
+        },
     },
     extraReducers: (builder) => {
         builder.addCase(login.pending, (state, action) => {
             state.isLoged = false;
+            state.isLoading = true;
         });
         builder.addCase(login.fulfilled, (state, action) => {
             if (action.payload) {
                 state.user = action.payload;
                 state.token = action.payload.token;
                 state.isLoged = true;
+                state.isLoading = false;
             }
         });
         builder.addCase(login.rejected, (state, action) => {
             state.isLoged = false;
             state.user = null;
             state.token = null;
+            state.isLoading = false;
         });
 
         //Verificar Login
@@ -88,6 +94,6 @@ const authSlice = createSlice({
     },
 });
 
-export const { setIsLoged, setUser } = authSlice.actions;
+export const { setIsLoged, setUser, setIsLoading } = authSlice.actions;
 
 export default authSlice.reducer;

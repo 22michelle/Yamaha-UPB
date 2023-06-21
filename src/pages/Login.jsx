@@ -1,21 +1,24 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Styles.css";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { login, logout, verifyLogin } from "../redux/authSlice";
 import { useForm } from "react-hook-form";
 import { unwrapResult } from "@reduxjs/toolkit";
+import { Spinner } from "react-bootstrap";
 
 const Login = () => {
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const location = useLocation();
+
   // const isLoged = useSelector((state) => state.auth.isLoged);
 
   const access = handleSubmit(async (values, e) => {
     e.preventDefault();
     try {
+ 
       const response = await dispatch(login(values));
 
       if (response.type === "authSlice/login/fulfilled") {
@@ -25,7 +28,9 @@ const Login = () => {
       if (token === response.payload.token) {
         return navigate("/status");
       }
+
     } catch (error) {
+    
       console.log(error.message);
     }
   });
@@ -36,7 +41,9 @@ const Login = () => {
     }
   }, [dispatch]);
   return (
+   
     <div className="body1">
+      
       <div className="login-form-container">
         <Link to="/">
           <button className="btn-return-login">
